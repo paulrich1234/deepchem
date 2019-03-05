@@ -1,0 +1,33 @@
+建立本地jupyter notebook 和远程服务器的jupyter notebook   实现远程服务器无法浏览界面的问题解决方案。
+
+
+
+
+
+步骤 一：在远程服务器上安装好conda环境  激活虚拟环境  然后运行jupyter notebook  
+
+
+会显示如下
+http://localhost:8888/?token=Example_Jupyter_Token_3cadb8b8b7005d9a46ca4d6675&tokenExample_Jupyter_Token_3cadb8b8b7005d9a46ca4d6675
+
+
+记住localhost 8888  然后关闭远程服务。
+
+
+
+步骤 二 ：运行ssh -L 8000:localhost:8888 sammy@your_server_ip 其中的8888需要和上次记住的8888一致。 sammy@your_server_ip分别为远程服务器的用户名和地址。
+
+然后激活虚拟环境，运行jupyter notebook
+
+
+
+ 步骤三  ：本地浏览器上输入  http://localhost:8000  
+
+
+会提示输入token   输入在远程服务器中产生的token  http://localhost:8888/?token=Example_Jupyter_Token_3cadb8b8b7005d9a46ca4d6675
+
+本例中token就是Example_Jupyter_Token_3cadb8b8b7005d9a46ca4d6675
+
+
+
+然后就可以正常运行远程服务上的程序了  
